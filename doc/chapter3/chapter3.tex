@@ -1,0 +1,49 @@
+%#-*- coding:utf-8 -*-
+\pagenumbering{arabic}
+\chapter{TUTORIIALS}
+\section{Introductory}
+\subsection{Pyplot tutorial}
+每一个Pyplot函数都会对图形做一些修改。例如，创建图形，在一个图形上创建画图面积，画线，装饰等。\\
+plot()是一个通用的命令，其接受任意数量的参数。例如$plt.plot([1, 2, 3, 4], [1, 4, 9, 16])$,该函数也接受第三个参数，用来控
+颜色和画图的格式。例如$plt.plot([1, 2, 3, 4], [1, 4, 9, 16], \textquoteleft ro \textquoteright)$
+$plt.axis([0, 6, 0, 20])$用来指定图的范围。\newline
+$plt.show()$展示图片。\newline
+多图的控制plt.plot(t, t, \textquoteleft r--\textquoteright, t, $t^{2}$, \textquoteleft bs \textquoteright, t, $t^{3}$, \textquoteleft g\^{} \textquoteright)\newline
+线也有很多的属性可以进行控制：\\
+例如线宽linewidth $= 2.0$, dash style, antialiased等。\\
+plt.plot(x, y, linewidth $= 2.0$)\\
+可以使用setp()命令，一次进行多次的设定\\
+\begin{verbatim}
+lines = plt.plot(x1, y1, x2, y2)
+#  use keyword args
+plt.setp(lines, color='r', linewidth=2.0)
+\end{verbatim}
+
+\noindent{}Working with multiple figures and axes\\
+pyplot has the concept of the current figure and the current axes.\\
+gca()返回当前的axes,~ gcf()返回当前前figure\\
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+
+t1 = np.arange(0.0, 5.0, 0.1)
+t2 = np.arange(0.0, 5.0, 0.02)
+
+plt.figure(1)
+plt.subplot(211)
+plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+
+plt.subplot(212)
+plt.plot(t2, np.cos(2*np.pi**t2), 'r--')
+plt.show()
+\end{lstlisting}
+The figure() command 是个可选的参数，因为figure(1)是默认创建的.subplot()命令制定具体的行，列和fignum的范围从1到
+numrows*numcols.其中subplot(211)等同于subpolt(2, 1, 1)这里也推荐使用后面的方式。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
