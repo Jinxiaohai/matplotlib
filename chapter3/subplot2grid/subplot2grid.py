@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-line_up, = plt.plot([1, 2, 3], label="Line Up")
-line_down, = plt.plot([3, 2, 1], label="Line Down")
-plt.legend(handles=[line_up, line_down])
+ax = plt.subplot2grid((2, 2), (0, 0), colspan=2)
+ax2 = plt.subplot2grid((2, 2), (1, 0))
+ax4 = plt.subplot2grid((2, 2), (1, 1))
 plt.show()

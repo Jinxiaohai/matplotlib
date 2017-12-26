@@ -9,9 +9,10 @@ import sys
 import subprocess
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.patches as mpatches
 
 
-line_up, = plt.plot([1, 2, 3], label="Line Up")
-line_down, = plt.plot([3, 2, 1], label="Line Down")
-plt.legend(handles=[line_up, line_down])
+red_patch = mpatches.Patch(color="red", label="The red data")
+plt.legend(handles=[red_patch])
+
 plt.show()
